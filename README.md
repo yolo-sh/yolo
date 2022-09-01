@@ -2,7 +2,7 @@
 
 This repository contains all the entities, actions and features used by all the other packages (including the [CLI](https://github.com/yolo-sh/cli)). 
 
-*(For the clean architecture aficionados, we are in the innermost circle (ie: the entities one).)*
+*For the clean architecture aficionados, we are in the innermost circle: the entities one.*
 
 ## Table of contents
 - [Requirements](#requirements)
@@ -11,7 +11,7 @@ This repository contains all the entities, actions and features used by all the 
 
 ## Requirements
 
-This repository makes use of go generics and, as a result, needs to have `go >= 1.18` as a requirement.
+- `go >= 1.18` (this module makes use of generics)
 
 ## Usage
 
@@ -23,21 +23,21 @@ As an example, all the cloud providers added to the [CLI](https://github.com/yol
 // entities/cloud_service.go
 type CloudService interface {
     CreateYoloConfigStorage(stepper.Stepper) error
-	RemoveYoloConfigStorage(stepper.Stepper) error
+    RemoveYoloConfigStorage(stepper.Stepper) error
 
-	LookupYoloConfig(stepper.Stepper) (*Config, error)
-	SaveYoloConfig(stepper.Stepper, *Config) error
+    LookupYoloConfig(stepper.Stepper) (*Config, error)
+    SaveYoloConfig(stepper.Stepper, *Config) error
 
-	CreateCluster(stepper.Stepper, *Config, *Cluster) error
-	RemoveCluster(stepper.Stepper, *Config, *Cluster) error
+    CreateCluster(stepper.Stepper, *Config, *Cluster) error
+    RemoveCluster(stepper.Stepper, *Config, *Cluster) error
 
-	CheckInstanceTypeValidity(stepper.Stepper, string) error
+    CheckInstanceTypeValidity(stepper.Stepper, string) error
 
-	CreateEnv(stepper.Stepper, *Config, *Cluster, *Env) error
-	RemoveEnv(stepper.Stepper, *Config, *Cluster, *Env) error
-
-	OpenPort(stepper.Stepper, *Config, *Cluster, *Env, string) error
-	ClosePort(stepper.Stepper, *Config, *Cluster, *Env, string) error
+    CreateEnv(stepper.Stepper, *Config, *Cluster, *Env) error
+    RemoveEnv(stepper.Stepper, *Config, *Cluster, *Env) error
+    
+    OpenPort(stepper.Stepper, *Config, *Cluster, *Env, string) error
+    ClosePort(stepper.Stepper, *Config, *Cluster, *Env, string) error
 }
 ```
 
