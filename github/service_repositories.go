@@ -71,3 +71,29 @@ func (s Service) GetFileContentFromRepository(
 
 	return fileContent.GetContent()
 }
+
+func (s Service) GetLanguagesUsedInRepository(
+	accessToken string,
+	repositoryOwner string,
+	repositoryName string,
+) ([]string, error) {
+
+	client := s.buildClient(accessToken)
+
+	languagesBytes, _, err := client.Repositories.ListLanguages(
+		context.TODO(),
+		repositoryOwner,
+		repositoryName,
+	)
+
+	if err != nil {
+		return nil, err
+	}
+
+	languages := []string{}
+	for language := range languagesBytes {
+		languages = append(languages, language)
+	}
+
+	return languages, nil
+}
