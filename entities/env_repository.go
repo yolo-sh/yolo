@@ -8,4 +8,5 @@ type ResolvedEnvRepository struct {
 	ExplicitOwner bool                `json:"explicit_owner"`
 	GitURL        EnvRepositoryGitURL `json:"git_url"`
 	GitHTTPURL    EnvRepositoryGitURL `json:"git_http_url"`
+	LanguagesUsed []string            `json:"languages_used"`
 }
