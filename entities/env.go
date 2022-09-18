@@ -11,10 +11,6 @@ import (
 	"github.com/gosimple/slug"
 )
 
-const (
-	EnvRootUser = "yolo"
-)
-
 type EnvSSHHostKey struct {
 	Algorithm   string `json:"algorithm"`
 	Fingerprint string `json:"fingerprint"`
